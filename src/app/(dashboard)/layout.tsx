@@ -1,6 +1,6 @@
 import React from "react";
 import { Separator } from "@/components/ui/separator";
-import DashboardSidebar from "@/components/dashboard-sidebar";
+import { DashboardSidebar } from "@/components/sidebar";
 import BreadcrumbHeader from "@/components/breadcrumb-header";
 import ThemeModeToggle from "@/components/theme-mode-toggle";
 

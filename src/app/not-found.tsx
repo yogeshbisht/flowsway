@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import BrandLogo from "@/components/brand-logo";
-import { OctagonXIcon } from "lucide-react";
+import { ArrowLeftIcon, OctagonXIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   return (
@@ -12,12 +13,18 @@ const NotFound = () => {
       <div className="flex flex-col items-center gap-4">
         <OctagonXIcon className="size-20" />
         <h1 className="text-4xl font-bold flex items-center gap-2">
-          <span>Not Found</span>
+          <span>Page Not Found</span>
         </h1>
-        <p className="text-lg">The page you are looking for does not exist.</p>
-        <Link href="/" className="text-blue-500 underline">
-          Go back to the homepage
-        </Link>
+        <p className="text-lg">{`The page you are looking for does not exist.`}</p>
+        <Button asChild className="my-4">
+          <Link href="/">
+            <ArrowLeftIcon className="size-4 mr-1" />
+            Back to Dashboard
+          </Link>
+        </Button>
+        <p className="text-sm text-muted-foreground">
+          If you believe this is an error, please contact support.
+        </p>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList
 } from "./ui/breadcrumb";
+import { MobileSidebar } from "./sidebar";
 
 const BreadcrumbHeader = () => {
   const pathname = usePathname();
@@ -16,6 +17,7 @@ const BreadcrumbHeader = () => {
 
   return (
     <div className="flex items-center">
+      <MobileSidebar />
       <Breadcrumb>
         <BreadcrumbList>
           {pathParts.map((part) => (
