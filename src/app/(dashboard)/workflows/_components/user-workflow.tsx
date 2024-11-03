@@ -14,7 +14,7 @@ const UserWorkflows = async () => {
         <AlertCircle className="size-4" />
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>
-          You don&apos;t have any workflows yet.
+          Something went wrong while fetching your workflows.
         </AlertDescription>
       </Alert>
     );

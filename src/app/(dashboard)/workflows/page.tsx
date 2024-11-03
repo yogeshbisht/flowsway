@@ -15,7 +15,7 @@ const WorkflowPage = () => {
 
       <div className="h-full py-6">
         <Suspense fallback={<div>Loading...</div>}>
-          <UserWorkflows />{" "}
+          <UserWorkflows />
         </Suspense>
       </div>
     </div>
