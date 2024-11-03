@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { getUserWorkflows } from "@/actions/workflows";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { AlertCircle, CirclePlus, ShieldAlert } from "lucide-react";
+import { AlertCircle, ShieldAlert } from "lucide-react";
+import CreateWorkflowDialog from "./create-workflow-dialog";
 
 const UserWorkflows = async () => {
   const workflows = await getUserWorkflows();
@@ -23,16 +22,13 @@ const UserWorkflows = async () => {
   if (workflows.length === 0) {
     return (
       <div className="flex flex-col items-center h-full min-h-96 justify-center gap-4">
-        <ShieldAlert className="size-20 text-muted-foreground" />
-        <p className="text-sm text-muted-foreground">
-          You don&apos;t have any workflows yet.
-        </p>
-        <Link href="/workflows/create">
-          <Button className="w-fit text-base mt-4">
-            <CirclePlus className="size-4 mr-1" />
-            Create Workflow
-          </Button>
-        </Link>
+        <div className="flex flex-col items-center gap-2">
+          <ShieldAlert className="size-20 text-muted-foreground" />
+          <p className="text-sm text-muted-foreground">
+            You don&apos;t have any workflows yet.
+          </p>
+        </div>
+        <CreateWorkflowDialog triggerText="Create Workflow" />
       </div>
     );
   }
