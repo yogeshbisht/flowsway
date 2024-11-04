@@ -7,6 +7,7 @@ import {
 } from "@/schema/workflow";
 import { WorkflowStatus } from "@/types/workflow";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 const getUserWorkflows = async () => {
@@ -55,4 +56,24 @@ const createWorkflow = async (formData: CreateWorkflowSchemaType) => {
   redirect(`/workflow/editor/${result.id}`);
 };
 
-export { getUserWorkflows, createWorkflow };
+const deleteWorkflow = async (workflowId: string) => {
+  const { userId } = await auth();
+  if (!userId) {
+    throw new Error("unauthorized");
+  }
+
+  const result = await prisma.workflow.delete({
+    where: {
+      id: workflowId,
+      userId
+    }
+  });
+
+  if (!result) {
+    throw new Error("failed to delete workflow");
+  }
+
+  revalidatePath("/workflows");
+};
+
+export { getUserWorkflows, createWorkflow, deleteWorkflow };

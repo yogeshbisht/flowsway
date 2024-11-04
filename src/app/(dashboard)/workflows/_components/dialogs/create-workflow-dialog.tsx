@@ -71,7 +71,7 @@ const CreateWorkflowDialog = ({ triggerText }: CreateWorkflowDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="w-fit mt-4">{triggerText}</Button>
+        <Button size="sm">{triggerText}</Button>
       </DialogTrigger>
       <DialogContent>
         <CustomDialogHeader

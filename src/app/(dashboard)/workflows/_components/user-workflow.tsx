@@ -1,7 +1,7 @@
 import { getUserWorkflows } from "@/actions/workflows";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle, ShieldAlert } from "lucide-react";
-import CreateWorkflowDialog from "@/components/dialogs/create-workflow-dialog";
+import CreateWorkflowDialog from "./dialogs/create-workflow-dialog";
 import WorkflowCard from "./workflow-card";
 const UserWorkflows = async () => {
   const workflows = await getUserWorkflows();
@@ -33,7 +33,7 @@ const UserWorkflows = async () => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap4">
+    <div className="grid grid-cols-1 gap-4">
       {workflows.map((workflow) => (
         <WorkflowCard key={workflow.id} workflow={workflow} />
       ))}

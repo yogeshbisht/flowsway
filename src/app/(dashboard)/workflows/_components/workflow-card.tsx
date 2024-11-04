@@ -12,6 +12,7 @@ import {
   CardDescription
 } from "@/components/ui/card";
 import WorkflowActions from "./workflow-actions";
+import { Button } from "@/components/ui/button";
 
 type WorkflowCardProps = {
   hideArchived?: boolean;
@@ -73,7 +74,10 @@ const WorkflowCard = ({
               {workflow.status}
             </div>
           </div>
-          <WorkflowActions />
+          <div className="flex items-center gap-2">
+            <Button variant="outline">Edit</Button>
+            <WorkflowActions workflow={workflow} />
+          </div>
         </CardTitle>
         <CardDescription>
           {`Last updated ${formatDistanceToNow(workflow.updatedAt)}`}
