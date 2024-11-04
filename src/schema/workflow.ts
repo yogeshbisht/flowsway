@@ -8,7 +8,4 @@ export const createWorkflowSchema = z.object({
   description: z.string().max(80).optional()
 });
 
-export type CreateWorkflowSchemaType = {
-  success: boolean;
-  data: z.infer<typeof createWorkflowSchema>;
-};
+export type CreateWorkflowSchemaType = z.infer<typeof createWorkflowSchema>;

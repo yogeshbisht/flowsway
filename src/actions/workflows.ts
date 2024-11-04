@@ -34,6 +34,7 @@ const createWorkflow = async (formData: CreateWorkflowSchemaType) => {
 
   const { success, data } = createWorkflowSchema.safeParse(formData);
 
+  console.log(success, "success", data, "data");
   if (!success) {
     throw new Error("invalid form data");
   }

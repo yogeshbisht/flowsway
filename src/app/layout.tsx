@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import ReactQueryProvider from "@/providers/react-query-provider";
 
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -47,7 +49,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ReactQueryProvider>{children}</ReactQueryProvider>
+            <ReactQueryProvider>
+              <TooltipProvider>{children}</TooltipProvider>
+              <Toaster />
+            </ReactQueryProvider>
           </ThemeProvider>
         </body>
       </html>
