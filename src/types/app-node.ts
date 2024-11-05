@@ -1,12 +1,5 @@
 import { Node } from "@xyflow/react";
-
-export enum TaskType {
-  LAUNCH_BROWSER = "LAUNCH_BROWSER",
-  NAVIGATE_TO = "NAVIGATE_TO",
-  CLICK = "CLICK",
-  TYPE = "TYPE",
-  WAIT = "WAIT"
-}
+import { TaskType } from "./task";
 
 export interface AppNodeData {
   type: TaskType;

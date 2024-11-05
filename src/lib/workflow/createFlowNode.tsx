@@ -1,4 +1,5 @@
-import { AppNode, TaskType } from "@/types/app-node";
+import { AppNode } from "@/types/app-node";
+import { TaskType } from "@/types/task";
 
 export const createFlowNode = (
   nodeType: TaskType,

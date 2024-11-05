@@ -7,13 +7,19 @@ import {
   useNodesState
 } from "@xyflow/react";
 import { Workflow } from "@prisma/client";
-import { TaskType } from "@/types/app-node";
+import { TaskType } from "@/types/task";
 import { createFlowNode } from "@/lib/workflow/createFlowNode";
 import NodeComponent from "./nodes/node-component";
 import "@xyflow/react/dist/style.css";
 
 const nodeTypes = {
   FlowSwayNode: NodeComponent
+};
+
+const snapGrid: [number, number] = [50, 50];
+
+const fitViewOptions = {
+  padding: 1
 };
 
 const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
@@ -30,8 +36,12 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         nodeTypes={nodeTypes}
+        snapToGrid
+        snapGrid={snapGrid}
+        fitViewOptions={fitViewOptions}
+        fitView
       >
-        <Controls position="top-left" />
+        <Controls position="top-left" fitViewOptions={fitViewOptions} />
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
       </ReactFlow>
     </main>
