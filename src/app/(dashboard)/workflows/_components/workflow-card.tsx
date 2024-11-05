@@ -75,7 +75,9 @@ const WorkflowCard = ({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline">Edit</Button>
+            <Link href={`/workflow/editor/${workflow.id}`}>
+              <Button variant="outline">Edit</Button>
+            </Link>
             <WorkflowActions workflow={workflow} />
           </div>
         </CardTitle>
