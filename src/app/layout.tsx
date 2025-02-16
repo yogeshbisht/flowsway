@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import ReactQueryProvider from "@/providers/react-query-provider";
@@ -7,16 +7,7 @@ import ReactQueryProvider from "@/providers/react-query-provider";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900"
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900"
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FlowSway",
@@ -38,10 +29,8 @@ export default function RootLayout({
         }
       }}
     >
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className} antialiased`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
